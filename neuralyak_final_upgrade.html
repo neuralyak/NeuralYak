@@ -1,0 +1,298 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NeuralYak</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body {
+      height: 100%;
+      font-family: 'Inter', sans-serif;
+      background-color: #0b0b0f;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    #tsparticles {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+
+    .hero {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      z-index: 1;
+      padding: 2rem;
+    }
+
+    .hero h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 4rem;
+      margin-bottom: 1rem;
+      color: #00ffff;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      max-width: 700px;
+      margin: 0 auto 2rem;
+      opacity: 0.8;
+    }
+
+    #lottie-hero {
+      width: 320px;
+      height: 320px;
+      margin: auto;
+    }
+
+    section {
+      padding: 4rem 2rem;
+      max-width: 1100px;
+      margin: auto;
+      z-index: 2;
+      position: relative;
+    }
+
+    section h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #00ffff;
+    }
+
+    section p {
+      margin-bottom: 1.5rem;
+      opacity: 0.85;
+    }
+
+    .carousel {
+      display: flex;
+      overflow-x: auto;
+      gap: 1.5rem;
+      padding: 1rem 0;
+      scroll-snap-type: x mandatory;
+    }
+
+    .card {
+      min-width: 300px;
+      background: linear-gradient(145deg, #1f1f2e, #151520);
+      border-radius: 15px;
+      padding: 2rem;
+      flex: none;
+      scroll-snap-align: center;
+      box-shadow: 0 10px 30px rgba(0,255,255,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 12px 40px rgba(0,255,255,0.2);
+    }
+
+    .pricing-card {
+      background: linear-gradient(145deg, #1c1c28, #12121b);
+      border-radius: 15px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.8s ease;
+      box-shadow: 0 0 20px rgba(0,255,255,0.05);
+    }
+
+    .pricing-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .cta {
+      text-align: center;
+      padding: 3rem 2rem;
+      background: #111;
+    }
+
+    .cta a {
+      background: #00ffff;
+      color: black;
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.3s;
+      box-shadow: 0 4px 15px rgba(0,255,255,0.3);
+    }
+
+    .cta a:hover {
+      background: #00cccc;
+    }
+
+    .whatsapp-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #25d366;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      z-index: 1000;
+    }
+
+    .whatsapp-btn img {
+      width: 32px;
+      height: 32px;
+    }
+
+    @media (min-width: 768px) {
+      .carousel { overflow-x: hidden; justify-content: space-between; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Particle Background -->
+<div id="tsparticles"></div>
+
+<!-- Hero Section -->
+<div class="hero">
+  <div class="hero-content">
+    <h1>NeuralYak</h1>
+    <p>AI bots that help you automate lead capture, nurturing, and delivery — 24/7.</p>
+    <div id="lottie-hero"></div>
+  </div>
+</div>
+
+<!-- Micro-Course Carousel -->
+<section>
+  <h2>Micro-Course Bot</h2>
+  <p>Educates leads via bite-sized messages, builds trust, and converts.</p>
+  <div class="carousel">
+    <div class="card"><strong>Capture:</strong> Collects lead data via interactive prompts.</div>
+    <div class="card"><strong>Nurture:</strong> Sends engaging micro-lessons automatically.</div>
+    <div class="card"><strong>Convert:</strong> Leads transition naturally into bookings or sales.</div>
+  </div>
+</section>
+
+<!-- Pricing Section -->
+<section>
+  <h2>Our Pricing Tiers</h2>
+  <div class="pricing-card"><p><strong>Starter ($500):</strong> Includes 1 bot with script, basic FAQ responses, and standard support to help get started with automation.</p></div>
+  <div class="pricing-card"><p><strong>Pro ($1000):</strong> Everything in Starter plus calendar/email integration and complete booking flows for seamless scheduling.</p></div>
+  <div class="pricing-card"><p><strong>Ultimate ($2000):</strong> Everything in Pro plus an advanced CRM quiz funnel, Micro-Course Bot integration, and third-party integrations for full automation.</p></div>
+</section>
+
+
+<!-- 24/7 Feature Carousel -->
+<section>
+  <h2>Why Choose NeuralYak?</h2>
+  <div class="carousel">
+    <div class="card"><strong>Always On:</strong> Our bots work 24/7 so you never miss a lead — even while you sleep.</div>
+    <div class="card"><strong>Instant Engagement:</strong> Responds instantly to user queries and captures data in real-time.</div>
+    <div class="card"><strong>Smart Automation:</strong> Handles conversations, follow-ups, and course delivery — hands-free.</div>
+  </div>
+</section>
+
+<!-- Pricing Carousel -->
+<section>
+  <h2>Our Pricing Tiers</h2>
+  <div class="carousel">
+    <div class="card"><strong>Starter ($500):</strong> 1 bot with script, basic FAQ, and standard support. Perfect to begin automation.</div>
+    <div class="card"><strong>Pro ($1000):</strong> Includes Starter plus email/calendar integration and booking workflows.</div>
+    <div class="card"><strong>Ultimate ($2000):</strong> All in Pro + Micro-Course Bot, CRM quiz funnel, and third-party integrations.</div>
+  </div>
+</section>
+
+<!-- FAQ Section -->
+<section>
+  <h2>Frequently Asked Questions</h2>
+  <div class="card"><strong>How long does setup take?</strong><br/>Most bots go live within 2–4 days after content is finalized.</div>
+  <div class="card"><strong>Do I need coding skills?</strong><br/>No! Everything is done-for-you. You just review and approve the flows.</div>
+  <div class="card"><strong>Can I upgrade later?</strong><br/>Yes, you can start with any tier and scale as your needs grow.</div>
+</section>
+
+<!-- Testimonials Carousel -->
+<section>
+  <h2>What Clients Say</h2>
+  <div class="carousel">
+    <div class="card">"NeuralYak helped me automate my coaching pipeline. Bookings doubled!"<br/><small>— Alex, Business Coach</small></div>
+    <div class="card">"Love the Micro-Course Bot. My leads are educated and ready when they book."<br/><small>— Priya, Marketing Consultant</small></div>
+    <div class="card">"Set it up once, and it just runs. Best investment I made this year."<br/><small>— John, SaaS Founder</small></div>
+  </div>
+</section>
+
+
+<!-- CTA -->
+<div class="cta">
+  <a href="https://wa.me/918949830863">Talk to us on WhatsApp</a>
+</div>
+
+<!-- Floating WhatsApp Button -->
+<a href="https://wa.me/918949830863" class="whatsapp-btn" target="_blank">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
+</a>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/tsparticles@2.11.1/tsparticles.bundle.min.js"></script>
+<script src="https://unpkg.com/lottie-web@5.7.4/build/player/lottie.min.js"></script>
+<script>
+  lottie.loadAnimation({
+    container: document.getElementById('lottie-hero'),
+    renderer: 'svg',
+    loop: true,
+    autoplay: true,
+    path: 'https://assets6.lottiefiles.com/packages/lf20_ygiuluqn.json'
+  });
+
+  // Reveal pricing cards on scroll
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.2 });
+
+  document.querySelectorAll('.pricing-card').forEach(card => {
+    observer.observe(card);
+  });
+
+  // tsParticles background init
+  tsParticles.load("tsparticles", {
+    background: { color: "#0b0b0f" },
+    fpsLimit: 60,
+    interactivity: {
+      events: {
+        onHover: { enable: true, mode: "repulse" },
+        resize: true
+      },
+      modes: {
+        repulse: { distance: 100, duration: 0.4 }
+      }
+    },
+    particles: {
+      color: { value: "#00ffff" },
+      links: { color: "#00ffff", distance: 150, enable: true, opacity: 0.3, width: 1 },
+      move: { enable: true, speed: 1, outModes: { default: "bounce" } },
+      number: { value: 50, density: { enable: true, area: 800 } },
+      opacity: { value: 0.5 },
+      shape: { type: "circle" },
+      size: { value: { min: 1, max: 4 } }
+    },
+    detectRetina: true
+  });
+</script>
+
+</body>
+</html>
